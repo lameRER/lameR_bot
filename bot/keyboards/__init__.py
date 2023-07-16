@@ -1,3 +1,7 @@
-__all__ = ['select_start']
+__all__ = [
+    'select_start',
+    'select_menu',
+    'select_weather'
+]
 
-from bot.keyboards.inline import select_start
+from .inline import select_start, select_menu, select_weather

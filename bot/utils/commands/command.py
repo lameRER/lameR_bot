@@ -3,7 +3,9 @@ from aiogram.types import BotCommand, BotCommandScopeDefault
 
 bot_commands = (
     ('start', 'Начало работы с ботом'),
-    ('help', 'Список команд бота'),
+    ('help', 'Помошь с ботом'),
+    ('menu', 'Список функционала бота'),
+    ('weather_api', 'Узнать текущую погоду'),
 )
 
 

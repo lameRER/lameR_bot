@@ -8,7 +8,10 @@ from bot.keyboards import select_start
 async def start(msg: types.Message, session: AsyncSession):
     user = await check_user(msg, session)
     if user:
-        await msg.answer(text=f'Привет {msg.from_user.first_name}.\n')
+        await msg.answer(
+            text=f'Привет {msg.from_user.first_name}.\n',
+            reply_markup=select_start().as_markup()
+        )
     else:
         await msg.answer(
             text=f'Привет {msg.from_user.first_name}.\n'
