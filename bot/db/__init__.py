@@ -1,7 +1,9 @@
 from .base import BaseModel
+from .method import check_user
 from .models import User
 
 __all__ = [
-    "BaseModel",
-    "User"
+    'BaseModel',
+    'User',
+    'check_user'
 ]
