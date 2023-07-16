@@ -2,9 +2,9 @@ from aiogram import types
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from bot.db import check_user
-from bot.handlers import help_func
+from bot.handlers.help import help_func
 from bot.keyboards import select_weather
-from bot.utils.weather import weather_api
+from bot.utils import weather_api
 
 
 async def weather(call: types.CallbackQuery, session: AsyncSession):

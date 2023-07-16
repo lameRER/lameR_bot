@@ -5,13 +5,13 @@ from aiogram.filters import CommandObject
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from bot.db import check_user
-from bot.utils.commands import bot_commands
+from bot.utils import bot_commands
 
 
 async def help_func(msg: Union[types.Message, types.CallbackQuery], session: AsyncSession):
     await check_user(msg, session)
     msg = msg.answer if type(msg) == types.Message else msg.message.edit_text
-    return await msg(
+    await msg(
         'Помощь и справка о боте\n'
         'Для того, чтобы получить информацию о команде, используйте /help <команда>\n'
     )
