@@ -7,8 +7,8 @@ from aiogram.utils.callback_answer import CallbackAnswerMiddleware
 from sqlalchemy import URL
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from bot.middlewares.db import DbSessionMiddleware
-from handlers import register_user_commands
-from utils.commands.command import set_commands
+from bot.handlers import register_user_commands
+from bot.utils.commands.command import set_commands
 
 
 async def main():
@@ -25,6 +25,7 @@ async def main():
     session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
     token = os.getenv('token_api')
+    print(f'token: {token}')
     dp = Dispatcher()
     dp.update.middleware(DbSessionMiddleware(session_pool=session_maker))
     dp.callback_query.middleware(CallbackAnswerMiddleware())
