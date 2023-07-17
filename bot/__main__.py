@@ -21,7 +21,7 @@ async def main():
         host=os.getenv('db_host'),
         database=os.getenv('database')
     )
-    engine = create_async_engine(mysql_url, echo=True)
+    engine = create_async_engine(mysql_url, echo=True, pool_pre_ping=True)
     session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
     token = os.getenv('token_api')
