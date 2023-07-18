@@ -11,7 +11,7 @@ from bot.utils import bot_commands
 
 async def help_func(msg: Union[types.Message, types.CallbackQuery], session: AsyncSession):
     await check_user(msg, session)
-    msg = msg.answer if type(msg) == types.Message else msg.message.edit_text
+    msg = msg.answer if isinstance(msg, types.Message) else msg.message.edit_text
     await msg(
         text='Помощь и справка о боте\n'
         'Для того, чтобы получить информацию о команде, используйте /help <команда>\n',
