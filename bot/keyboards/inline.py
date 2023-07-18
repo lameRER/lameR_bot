@@ -37,6 +37,6 @@ def select_contact():
     menu = InlineKeyboardBuilder()
     menu.button(
         text='Наши контакты',
-        callback_data='contact'
+        url='https://discord.gg/KWEwUtYQaX'
     )
     return menu
