@@ -31,3 +31,12 @@ def select_weather():
         callback_data=f'weather_api {city}'
     )
     return menu
+
+
+def select_contact():
+    menu = InlineKeyboardBuilder()
+    menu.button(
+        text='Наши контакты',
+        url='https://discord.gg/KWEwUtYQaX'
+    )
+    return menu

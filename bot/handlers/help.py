@@ -5,6 +5,7 @@ from aiogram.filters import CommandObject
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from bot.db import check_user
+from bot.keyboards import select_contact
 from bot.utils import bot_commands
 
 
@@ -12,8 +13,9 @@ async def help_func(msg: Union[types.Message, types.CallbackQuery], session: Asy
     await check_user(msg, session)
     msg = msg.answer if isinstance(msg, types.Message) else msg.message.edit_text
     await msg(
-        'Помощь и справка о боте\n'
-        'Для того, чтобы получить информацию о команде, используйте /help <команда>\n'
+        text='Помощь и справка о боте\n'
+        'Для того, чтобы получить информацию о команде, используйте /help <команда>\n',
+        reply_markup=select_contact().as_markup()
     )
 
 
