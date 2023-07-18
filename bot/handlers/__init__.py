@@ -4,6 +4,7 @@ from aiogram import Router
 from aiogram.filters import CommandStart, Command
 from aiogram import F
 
+from .contact import contact
 from .help import help_func, help_command
 from .menu import menu
 from .start import start
@@ -19,4 +20,6 @@ def register_user_commands(router: Router):
     router.callback_query.register(menu, F.data == 'menu')
     router.callback_query.register(call_weather_api, F.data.startswith('weather_api'))
     router.callback_query.register(weather, F.data == 'weather')
+    router.message.register(contact, Command(commands='contact'))
+    router.callback_query.register(contact, F.data == 'contact')
 
